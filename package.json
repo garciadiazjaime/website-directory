@@ -4,9 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
+    "dev": "API_URL=http://0.0.0.0:3030/ next",
     "build": "next build",
     "start": "next start",
+    "lint": "eslint --ext .js,.js .",
+    "test": "yarn lint",
     "docker:build": "next build && docker build -t garciadiazjaime/website-directory .",
     "docker:run": "docker run -d -p 49193:3000 -e --name directory garciadiazjaime/website-directory",
     "docker:push": "docker push garciadiazjaime/website-directory",
@@ -21,6 +23,17 @@
     "react-lazyload": "^2.3.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.0.3",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "cross-env": "^5.1.3",
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.5.1",
     "webpack-bundle-analyzer": "^2.9.1"
   }
 }
