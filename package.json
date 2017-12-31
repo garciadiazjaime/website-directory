@@ -1,0 +1,26 @@
+{
+  "name": "website-directory",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "docker:build": "next build && docker build -t garciadiazjaime/website-directory .",
+    "docker:run": "docker run -d -p 49193:3000 -e --name directory garciadiazjaime/website-directory",
+    "docker:push": "docker push garciadiazjaime/website-directory",
+    "docker:pull": "docker pull garciadiazjaime/website-directory",
+    "analyze": "cross-env ANALYZE=1 next build"
+  },
+  "dependencies": {
+    "isomorphic-unfetch": "^2.0.0",
+    "next": "^4.2.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-lazyload": "^2.3.0"
+  },
+  "devDependencies": {
+    "webpack-bundle-analyzer": "^2.9.1"
+  }
+}
