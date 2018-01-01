@@ -8,7 +8,7 @@ const renderPlace = (places) => {
   return places.map(place => (
     <div key={place.placeId} className="place">
       {
-        place.google.photos.length ? 
+        place.google.photos.length ?
           <LazyLoad height={200} once>
             <img src={place.google.photos[0]} alt={place.google.name} />
           </LazyLoad> : null

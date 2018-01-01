@@ -9,6 +9,7 @@ const Layout = ({ children }) => (
       <title>Restaurantes, Bares y Cafés en Playas de Tijuana</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <meta name="description" content="Restaurantes, Bares y Cafés en Playas de Tijuana" />
+      <link rel="icon" href="/static/images/favicon.ico" />
     </Head>
 
     <MainHeader />
