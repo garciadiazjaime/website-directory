@@ -25,15 +25,20 @@ class Layout extends Component {
 
         <MainHeader />
 
-        {this.props.children}
+        <section className="main-content">
+          {this.props.children}
+        </section>
 
         <style jsx global>{`
           body {
-            background-color: #f5f6f6;
-            color: #000;
-            font-size: 26px;
             margin: 0;
+          }
+
+          .main-content {
+            color: #000;
             font-family: Helvetica;
+            max-width: 720px;
+            margin: 0 auto;
           }
 
           a {

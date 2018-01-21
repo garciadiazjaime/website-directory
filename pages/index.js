@@ -4,38 +4,69 @@ import LazyLoad from 'react-lazyload'
 import Layout from '../components/layout/layout'
 import { getPlaces } from '../services/places'
 
+const categories = [{
+  title: 'Tacos',
+  slug: 'tacos'
+}, {
+  title: 'Pizza',
+  slug: 'pizza'
+}, {
+  title: 'Hamburguesa',
+  slug: 'hamburguesa'
+}, {
+  title: 'Sushi',
+  slug: 'sushi'
+}]
+
 const renderPlace = (places) => {
   return places.map(place => (
     <div key={place.placeId} className="place">
-      {
-        place.google.photos.length ?
-          <LazyLoad height={200} once>
-            <img src={place.google.photos[0]} alt={place.google.name} />
-          </LazyLoad> : null
-      }
-      <div className="content">
+      <div className="image-contain">
+        <div className="image-wrapper">
+          {
+            place.google.photos.length ?
+              <LazyLoad height={200} once>
+                <img src={place.google.photos[0]} alt={place.google.name} />
+              </LazyLoad> : null
+          }
+        </div>
+      </div>
+      <div className="info-contain">
         <h2>{place.google.name}</h2>
-        {
-          place.google.international_phone_number ?
-            <p><a href={`tel:${place.google.international_phone_number}`}>{place.google.international_phone_number}</a></p> : null
-        }
-        {
-          place.google.url ?
-            <p><a href={place.google.url} target="_blank">ver en google maps</a></p> : null
-        }
       </div>
       <style jsx global>{`
         .place {
           margin: 20px 0 0;
-          padding: 2px 0 10px;
           background-color: #FFF;
+          display: flex;
+          padding-bottom: 12px;
+          align-items: center;
         }
-        .content {
-          padding: 0 5px;
+
+        .image-contain {
+
+        }
+        .image-wrapper {
+          width: 150px;
+          height: 100px;
+          overflow: hidden;
         }
         img {
-          width: 100%;
+          width: 180px;
           height: auto;
+        }
+
+        .info-contain {
+          padding: 0 6px;
+          overflow: hidden;
+          height: 100%;
+        }
+        h2 {
+          margin: 0;
+          font-size: 2.5rem;
+          overflow-wrap: break-word;
+          font-weight: normal;
+          opacity: 0.85;
         }
         p {
           margin: 0;
@@ -43,9 +74,6 @@ const renderPlace = (places) => {
         a {
           color: #000;
           opacity: 0.7;
-        }
-        h2 {
-          margin: 5px 0;
         }
       `}
       </style>

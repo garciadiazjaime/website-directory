@@ -3,18 +3,19 @@ import React from 'react'
 const MainHeader = () => (
   <div>
     <header>
-      <h1>Restaurantes, Bares y Cafés en Playas de Tijuana</h1>
+      <h1>Si he de comer, en Playas será.</h1>
     </header>
     <style jsx global>{`
       header {
-        background-color: #363c48;
+        background-color: #012a33;
       }
       h1 {
-        margin: 0;
-        padding: 5px 5px 15px;
+        margin: 0 auto;
+        padding: 15px 6px;
         color: #FFF;
-        font-size: 1em;
+        font-size: 1.8em;
         font-weight: normal;
+        max-width: 720px;
       }
     `}
     </style>

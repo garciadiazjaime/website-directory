@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "eslint --ext .js,.js .",
     "test": "yarn lint && jest",
+    "export": "yarn build && next export",
     "docker:build": "next build && docker build -t garciadiazjaime/website-directory .",
     "docker:run": "docker run -d -p 49193:3000 -e --name directory garciadiazjaime/website-directory",
     "docker:push": "docker push garciadiazjaime/website-directory",
