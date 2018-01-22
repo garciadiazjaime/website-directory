@@ -26,35 +26,35 @@ const Element = ({ place }) => (
         align-items: center
       }
 
-      .image-contain {
+      .place .image-contain {
 
       }
-      .image-wrapper {
+      .place .image-wrapper {
         width: 150px
         height: 100px
         overflow: hidden
       }
-      img {
+      .place img {
         width: 180px
         height: auto
       }
 
-      .info-contain {
+      .place .info-contain {
         padding: 0 6px
         overflow: hidden
         height: 100%
       }
-      h2 {
+      .place h2 {
         margin: 0
         font-size: 2.5rem
         overflow-wrap: break-word
         font-weight: normal
         opacity: 0.85
       }
-      p {
+      .place p {
         margin: 0
       }
-      a {
+      .place a {
         color: #000
         opacity: 0.7
       }
