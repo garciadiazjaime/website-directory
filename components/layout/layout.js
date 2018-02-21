@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Head from 'next/head'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ReactGA from 'react-ga';
 
 import MainHeader from './mainHeader'
@@ -13,7 +14,7 @@ class Layout extends Component {
 
   render() {
     return (
-      <div>
+      <MuiThemeProvider>
         <Head>
           <link rel="icon" href="/static/images/favicon.ico" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -31,7 +32,8 @@ class Layout extends Component {
 
         <style jsx global>{`
           body {
-            margin: 0;
+            margin: 0 auto;
+            max-width: 720px;
           }
 
           .main-content {
@@ -46,7 +48,7 @@ class Layout extends Component {
           }
         `}
         </style>
-      </div>
+      </MuiThemeProvider>
     )
   }
 }
