@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "API_URL=http://0.0.0.0:3030/ next",
+    "dev": "API_URL=http://0.0.0.0:3030/ node server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "lint": "eslint --ext .js,.js .",
     "test": "yarn lint && jest",
     "export": "yarn build && next export",

@@ -15,7 +15,7 @@ const categories = [{
   image: 'http://www.usmag.club/wp-content/uploads/2016/05/How-To-Make-Pizza-At-Home-1-789x445.jpg'
 }, {
   title: 'Burger',
-  slug: 'hamburguesa',
+  slug: 'burger',
   image: 'http://aprovacao.digicriativa.com.br/rioexperience/blog/wp-content/uploads/2013/09/tt.jpg'
 }, {
   title: 'Sushi',
@@ -33,14 +33,10 @@ const categories = [{
   title: 'Máriscos',
   slug: 'mariscos',
   image: 'https://toriavey.com/images/2012/07/Crispy-Fish-Tacos.jpg'
-}, {
-  title: 'Todo',
-  slug: '',
-  image: ''
 }]
 
-const renderCategories = categories => categories.map(category => <Category category={category} />)
-const renderPlace = places => places.map(place => <Place place={place} />)
+const renderCategories = categories => categories.map(category => <Category category={category} key={category.slug} />)
+const renderPlace = places => places.map(place => <Place place={place} key={place.placeId} />)
 
 const HomePage = ({ places }) => (
   <Layout>
@@ -59,8 +55,8 @@ const HomePage = ({ places }) => (
   </Layout>
 )
 
-HomePage.getInitialProps = async () => {
-  const places = await getPlaces()
+HomePage.getInitialProps = async ({ query }) => {
+  const places = query.category ? await getPlaces(query.category) : []
   return { places }
 }
 
