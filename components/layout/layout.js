@@ -25,7 +25,7 @@ class Layout extends Component {
             <meta name="description" content="Restaurantes, Bares y Cafés en Playas de Tijuana" />
           </Head>
 
-          <MainHeader />
+          <MainHeader category={this.props.category} />
 
           <section className="main-content">
             {this.props.children}

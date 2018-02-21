@@ -8,22 +8,16 @@ const Category  = ({ category }) => (
   </ListItem>
 )
 
-const style = {
-  width: '100%',
-  textAlign: 'center',
-  display: 'inline-block',
-};
+const renderCategories = (categories) => categories ?
+  categories.map(category => <Category category={category} key={category.slug} />)
+  : null
 
-const Categories = ({ categories }) => (
-  <Paper style={style} zDepth={1}>
+const Categories = ({ category, categories }) => (
+  !category ?
     <List>
-      {
-        categories ?
-          categories.map(category => <Category category={category} key={category.slug} />)
-          : null
-      }
+      {renderCategories(categories)}
     </List>
-  </Paper>
+  : null
 )
 
 export default Categories

@@ -7,19 +7,16 @@ import { getPlaces, getCategories } from '../services/places'
 
 const renderPlace = places => places.map(place => <Place place={place} key={place.placeId} />)
 
-const HomePage = ({ places }) => (
-  <Layout>
+const HomePage = ({ category, places }) => (
+  <Layout category={category}>
     <section className="categories-content">
-      <Categories categories={getCategories()} />
+      <Categories categories={getCategories()} category={category} />
     </section>
     {
       places && places.length ?
-        <div>
-          <h2>Lugares: </h2>
-          <section className="places-content">
-            {renderPlace(places)}
-          </section>
-        </div>
+        <section className="places-content">
+          {renderPlace(places)}
+        </section>
       : null
     }
   </Layout>
@@ -27,7 +24,7 @@ const HomePage = ({ places }) => (
 
 HomePage.getInitialProps = async ({ query }) => {
   const places = query.category ? await getPlaces(query.category) : []
-  return { places }
+  return { places, category: query.category }
 }
 
 export default HomePage
