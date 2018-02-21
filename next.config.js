@@ -26,7 +26,15 @@ module.exports = {
   },
   exportPathMap: function() {
     return {
-      '/': { page: '/' }
+      '/': { page: '/' },
+      '/tacos': { page: '/', query: { category: 'tacos' } },
+      '/pizza': { page: '/', query: { category: 'pizza' } },
+      '/burger': { page: '/', query: { category: 'burger' } },
+      '/sushi': { page: '/', query: { category: 'sushi' } },
+      '/mariscos': { page: '/', query: { category: 'mariscos' } },
+      '/cafe': { page: '/', query: { category: 'cafe' } },
+      '/restaurante': { page: '/', query: { category: 'restaurante' } },
+      '/bar': { page: '/', query: { category: 'bar' } },
     }
   }
 }

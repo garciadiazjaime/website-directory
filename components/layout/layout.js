@@ -15,39 +15,41 @@ class Layout extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <Head>
-          <link rel="icon" href="/static/images/favicon.ico" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta charSet="utf-8" />
+        <div>
+          <Head>
+            <link rel="icon" href="/static/images/favicon.ico" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta charSet="utf-8" />
 
-          <title>Restaurantes, Bares y Cafés en Playas de Tijuana</title>
-          <meta name="description" content="Restaurantes, Bares y Cafés en Playas de Tijuana" />
-        </Head>
+            <title>Restaurantes, Bares y Cafés en Playas de Tijuana</title>
+            <meta name="description" content="Restaurantes, Bares y Cafés en Playas de Tijuana" />
+          </Head>
 
-        <MainHeader />
+          <MainHeader />
 
-        <section className="main-content">
-          {this.props.children}
-        </section>
+          <section className="main-content">
+            {this.props.children}
+          </section>
 
-        <style jsx global>{`
-          body {
-            margin: 0 auto;
-            max-width: 720px;
-          }
+          <style jsx global>{`
+            body {
+              margin: 0 auto;
+              max-width: 720px;
+            }
 
-          .main-content {
-            color: #000;
-            font-family: Helvetica;
-            max-width: 720px;
-            margin: 0 auto;
-          }
+            .main-content {
+              color: #000;
+              font-family: Helvetica;
+              max-width: 720px;
+              margin: 0 auto;
+            }
 
-          a {
-            text-decoration: none;
-          }
-        `}
-        </style>
+            a {
+              text-decoration: none;
+            }
+          `}
+          </style>
+        </div>
       </MuiThemeProvider>
     )
   }
