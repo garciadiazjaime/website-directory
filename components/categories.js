@@ -1,10 +1,19 @@
 import React from 'react'
-import Paper from 'material-ui/Paper';
-import {List, ListItem} from 'material-ui/List';
+import {List, ListItem} from 'material-ui/List'
+import ReactGA from 'react-ga'
+
+const openCategory = category => {
+  ReactGA.event({
+    category: 'category-item',
+    action: 'click',
+    label: category.slug
+  })
+  window.location = category.slug
+}
 
 const Category  = ({ category }) => (
-  <ListItem className="category">
-    <a href={`${category.slug}`}>{category.title}</a>
+  <ListItem className="category" onClick={() => openCategory(category)}>
+    <a>{category.title}</a>
   </ListItem>
 )
 

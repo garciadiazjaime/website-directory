@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, CardActions, CardMedia, CardTitle } from 'material-ui/Card'
 import FlatButton from 'material-ui/FlatButton'
-
+import ReactGA from 'react-ga'
 import LazyLoad from 'react-lazyload'
 
 const titleStyle = {
@@ -22,6 +22,39 @@ const toTitle = title => {
   return bits.map(bit => `${bit.charAt(0).toUpperCase()}${bit.substr(1)}`).join(' ')
 }
 
+const openMap = place => {
+  if (place && place.google && place.google.url) {
+    window.open(place.google.url)
+    ReactGA.event({
+      category: 'place-row',
+      action: 'map',
+      label: place.google.name
+    })
+  }
+}
+
+const openMenu = place => {
+  if (place && place.google && place.google.name) {
+    window.open(`https://www.google.com/search?q=${place.google.name}`)
+    ReactGA.event({
+      category: 'User',
+      action: 'menu',
+      label: place.google.name
+    })
+  }
+}
+
+const openTel = place => {
+  if (place && place.google && place.google.international_phone_number) {
+    window.open(`tel:${place.google.international_phone_number}`)
+    ReactGA.event({
+      category: 'User',
+      action: 'tel',
+      label: place.google.name
+    })
+  }
+}
+
 const Element = ({ place }) => (
   <Card>
     <CardMedia>
@@ -35,9 +68,9 @@ const Element = ({ place }) => (
     </CardMedia>
     <CardTitle title={toTitle(place.google.name)} style={titleStyle} />
     <CardActions style={ctaStyle}>
-      <FlatButton label="Menú" />
-      <FlatButton label="Mapa" />
-      <FlatButton label="Tel" />
+      <FlatButton label="Mapa" onClick={() => openMap(place)} />
+      <FlatButton label="Menú" onClick={() => openMenu(place)} />
+      <FlatButton label="Tel" onClick={() => openTel(place)} />
     </CardActions>
   </Card>
 )
