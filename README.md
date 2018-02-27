@@ -20,3 +20,11 @@ docker run -d -p 49193:3000 -e 'API_URL=http://api.playami.com/' --name director
 docker push garciadiazjaime/website-directory
 
 NODE_ENV=production API_URL=http://api.playami.com/ npm start
+
+## upload to google cloud bucket
+
+```
+gsutil mb gs://www.focus.mx/
+gsutil -m cp -r ./ gs://www.playami.com/
+gsutil iam ch allUsers:objectViewer gs://www.playami.com/
+```
