@@ -26,7 +26,7 @@ const openMap = place => {
   if (place && place.google && place.google.url) {
     window.open(place.google.url)
     ReactGA.event({
-      category: 'place-row',
+      category: 'place-item',
       action: 'map',
       label: place.google.name
     })
@@ -37,7 +37,7 @@ const openMenu = place => {
   if (place && place.google && place.google.name) {
     window.open(`https://www.google.com/search?q=${place.google.name}`)
     ReactGA.event({
-      category: 'User',
+      category: 'place-item',
       action: 'menu',
       label: place.google.name
     })
@@ -48,7 +48,7 @@ const openTel = place => {
   if (place && place.google && place.google.international_phone_number) {
     window.open(`tel:${place.google.international_phone_number}`)
     ReactGA.event({
-      category: 'User',
+      category: 'place-item',
       action: 'tel',
       label: place.google.name
     })
