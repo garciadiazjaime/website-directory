@@ -1,5 +1,6 @@
 import React from 'react'
 import {List, ListItem} from 'material-ui/List'
+import RaisedButton from 'material-ui/RaisedButton';
 import ReactGA from 'react-ga'
 
 const openCategory = category => {
@@ -11,9 +12,25 @@ const openCategory = category => {
   window.location = category.slug
 }
 
+const itemStyle = {
+  textAlign: 'center',
+  lineHeight: '1',
+  fontWeight: 'bold',
+  padding: 10
+}
+
+const labelStyle = {
+  fontSize: '24px'
+}
+
+const btnStyle = {
+  width: '240px',
+  height: '40px'
+}
+
 const Category  = ({ category }) => (
-  <ListItem className="category" onClick={() => openCategory(category)}>
-    <a>{category.title}</a>
+  <ListItem className="category" onClick={() => openCategory(category)} innerDivStyle={itemStyle}>
+    <RaisedButton label={category.title} labelStyle={labelStyle} buttonStyle={btnStyle} />
   </ListItem>
 )
 

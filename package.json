@@ -9,7 +9,7 @@
     "start": "NODE_ENV=production node server.js",
     "lint": "eslint --ext .js,.js .",
     "test": "yarn lint && jest",
-    "export": "API_URL=http://0.0.0.0:3030/ yarn build && API_URL=http://0.0.0.0:3030/ next export",
+    "export": "yarn build && API_URL=http://0.0.0.0:3030/ next export",
     "docker:build": "next build && docker build -t garciadiazjaime/website-directory .",
     "docker:run": "docker run -d -p 49193:3000 -e --name directory garciadiazjaime/website-directory",
     "docker:push": "docker push garciadiazjaime/website-directory",

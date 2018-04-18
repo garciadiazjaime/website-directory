@@ -24,7 +24,9 @@ NODE_ENV=production API_URL=http://api.playami.com/ npm start
 ## upload to google cloud bucket
 
 ```
-gsutil mb gs://www.focus.mx/
-gsutil -m cp -r ./ gs://www.playami.com/
+gsutil mb gs://www.playami.mx/
+gsutil -m rm -r gs://www.playami.com/*
+gsutil -m cp -r ./out/. gs://www.playami.com/
 gsutil iam ch allUsers:objectViewer gs://www.playami.com/
+gsutil web get gs://www.playami.com
 ```
