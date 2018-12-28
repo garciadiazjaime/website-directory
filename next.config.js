@@ -33,7 +33,7 @@ module.exports = {
       '/sushi': { page: '/', query: { category: 'sushi' } },
       '/mariscos': { page: '/', query: { category: 'mariscos' } },
       '/cafe': { page: '/', query: { category: 'cafe' } },
-      '/restaurante': { page: '/', query: { category: 'restaurante' } },
+      '/restaurant': { page: '/', query: { category: 'restaurant' } },
       '/bar': { page: '/', query: { category: 'bar' } },
     }
   }

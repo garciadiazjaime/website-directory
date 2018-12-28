@@ -26,7 +26,7 @@ const categories = [{
   image: 'https://cdn-mf0.heartyhosting.com/sites/mensfitness.com/files/sushi_main_0.jpg'
 }, {
   title: 'Restaurante',
-  slug: '/restaurante',
+  slug: '/restaurant',
   image: 'https://www.shareicon.net/data/2015/12/01/680795_fork_512x512.png'
 }, {
   title: 'Bar',
@@ -37,7 +37,8 @@ const categories = [{
 export const apiUrl = process && process.env && process.env.API_URL ? process.env.API_URL : null
 
 export async function getPlaces(category) {
-  const res = await fetch(`${apiUrl}places/${category}`)
+  const url = `${apiUrl}places/${category}`
+  const res = await fetch(url)
   return await res.json()
 }
 

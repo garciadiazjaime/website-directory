@@ -4,6 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ReactGA from 'react-ga';
 
 import MainHeader from './mainHeader'
+import Footer from './footer'
 
 class Layout extends Component {
 
@@ -30,6 +31,8 @@ class Layout extends Component {
           <section className="main-content">
             {this.props.children}
           </section>
+
+          <Footer />
 
           <style jsx global>{`
             body {
