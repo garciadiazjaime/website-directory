@@ -14,7 +14,10 @@
     "docker:run": "docker run -d -p 49193:3000 -e --name directory garciadiazjaime/website-directory",
     "docker:push": "docker push garciadiazjaime/website-directory",
     "docker:pull": "docker pull garciadiazjaime/website-directory",
-    "analyze": "cross-env ANALYZE=1 next build"
+    "analyze": "cross-env ANALYZE=1 next build",
+    "google:clean": "gsutil -m rm -r gs://www.playami.com/_next",
+    "google:upload": "gsutil -m cp -r ./out/. gs://www.playami.com",
+    "deploy": "npm run google:clean && npm run google:upload"
   },
   "dependencies": {
     "isomorphic-unfetch": "^2.0.0",
