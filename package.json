@@ -4,23 +4,51 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
+    "dev": "API_URL=http://0.0.0.0:3030/ node server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
+    "lint": "eslint --ext .js,.js .",
+    "test": "yarn lint && jest",
+    "export": "yarn build && API_URL=http://0.0.0.0:3030/ next export",
     "docker:build": "next build && docker build -t garciadiazjaime/website-directory .",
     "docker:run": "docker run -d -p 49193:3000 -e --name directory garciadiazjaime/website-directory",
     "docker:push": "docker push garciadiazjaime/website-directory",
     "docker:pull": "docker pull garciadiazjaime/website-directory",
-    "analyze": "cross-env ANALYZE=1 next build"
+    "analyze": "cross-env ANALYZE=1 next build",
+    "google:clean": "gsutil -m rm -r gs://www.playami.com/_next",
+    "google:upload": "gsutil -m cp -r ./out/. gs://www.playami.com",
+    "deploy": "npm run google:clean && npm run google:upload"
   },
   "dependencies": {
     "isomorphic-unfetch": "^2.0.0",
+    "material-ui": "^0.20.0",
     "next": "^4.2.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-ga": "^2.4.0",
     "react-lazyload": "^2.3.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.0.3",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "cross-env": "^5.1.3",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.5.1",
+    "jest": "^22.0.4",
     "webpack-bundle-analyzer": "^2.9.1"
+  },
+  "jest": {
+    "setupFiles": [
+      "./config/shim.js",
+      "./config/setupTest.js"
+    ]
   }
 }
